@@ -403,7 +403,7 @@ GetFights = () =>{
 			Buildings.forEach(building => {
 				let responseData = data.responseData.updatedEntities.find(x => x.id == building.id);
 				let ceData = Object.values(MainParser.CityEntities).find(x => x.id == building.cityentity_id);
-				let era = Technologies.getEraName(building.cityentity_id, data.level);
+				let era = Technologies.getEraName(building.cityentity_id, responseData.level);
 				let newCityEntity = MainParser.createNewCityMapEntity(ceData, responseData, era);
 				MainParser.NewCityMapData[building.id] = newCityEntity;
 			});
